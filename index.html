@@ -15,14 +15,23 @@
         <h2>Total XP: <span id="xp">0</span></h2>
     </div>
 
-    <div class="tasks">
-        <h2>✅ Daily Tasks</h2>
-        <label><input type="checkbox" onclick="completeTask(20)"> Gym</label>
-        <label><input type="checkbox" onclick="completeTask(25)"> Study</label>
-        <label><input type="checkbox" onclick="completeTask(30)"> Coding</label>
-        <label><input type="checkbox" onclick="completeTask(15)"> No Junk Food</label>
-        <label><input type="checkbox" onclick="completeTask(10)"> Meditation</label>
-    </div>
+    <h3>Daily Tasks</h3>
+
+<label>
+  <input type="checkbox" onclick="completeTask('gym',20)">
+  Gym 🔥 Streak: <span id="gym-streak">0</span>
+</label><br>
+
+<label>
+  <input type="checkbox" onclick="completeTask('study',25)">
+  Study 🔥 Streak: <span id="study-streak">0</span>
+</label><br>
+
+<label>
+  <input type="checkbox" onclick="completeTask('coding',30)">
+  Coding 🔥 Streak: <span id="coding-streak">0</span>
+</label><br>
+
 
     <div class="journal">
         <h2>📓 Daily Journal</h2>
