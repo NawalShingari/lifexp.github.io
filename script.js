@@ -25,7 +25,7 @@ function completeTask(task, points) {
     checkReward(level);
     saveDailyXP();
     drawChart();
-
+    drawChart();
     updateUI();
 }
 
@@ -104,4 +104,8 @@ function drawChart() {
     });
 }
 drawChart();
+saveDailyXP();
+    drawChart();
+
+    updateUI()
 
