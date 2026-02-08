@@ -85,4 +85,23 @@ function saveDailyXP() {
 
     localStorage.setItem("history", JSON.stringify(history));
 }
+function drawChart() {
+    let ctx = document.getElementById('progressChart').getContext('2d');
+
+    let labels = history.map(h => h.date.slice(0,10));
+    let data = history.map(h => h.xp);
+
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'XP Growth',
+                data: data,
+                tension: 0.3
+            }]
+        }
+    });
+}
+drawChart();
 
