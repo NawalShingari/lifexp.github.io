@@ -23,6 +23,8 @@ function completeTask(task, points) {
     localStorage.setItem("streaks", JSON.stringify(streaks));
     let level = Math.floor(xp / 100);
     checkReward(level);
+    saveDailyXP();
+    drawChart();
 
     updateUI();
 }
