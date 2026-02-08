@@ -69,4 +69,18 @@ if (lastDate !== today) {
     localStorage.setItem("lastDate", today);
     localStorage.removeItem("streaks"); // resets daily ticks visual
 }
+let history = JSON.parse(localStorage.getItem("history")) || [];
+
+function saveDailyXP() {
+    let today = new Date().toDateString();
+    let existing = history.find(item => item.date === today);
+
+    if (existing) {
+        existing.xp = xp;
+    } else {
+        history.push({ date: today, xp: xp });
+    }
+
+    localStorage.setItem("history", JSON.stringify(history));
+}
 
