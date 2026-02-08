@@ -30,6 +30,8 @@ function completeTask(task, points) {
 }
 
 window.onload = function () {
+    drawChart();
+
     updateUI();
 };
 const rewards = {
