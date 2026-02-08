@@ -1,133 +1,45 @@
-let xp = localStorage.getItem("xp") ? parseInt(localStorage.getItem("xp")) : 0;
-
-let streaks = JSON.parse(localStorage.getItem("streaks")) || {
-    gym: 0,
-    study: 0,
-    coding: 0
-};
-
-function updateUI() {
-    document.getElementById("xp").innerText = xp;
-    document.getElementById("level").innerText = Math.floor(xp / 100);
-
-    document.getElementById("gym-streak").innerText = streaks.gym;
-    document.getElementById("study-streak").innerText = streaks.study;
-    document.getElementById("coding-streak").innerText = streaks.coding;
-}
-
-function completeTask(task, points) {
-    xp += points;
-    streaks[task] += 1;
-
-    localStorage.setItem("xp", xp);
-    localStorage.setItem("streaks", JSON.stringify(streaks));
-    let level = Math.floor(xp / 100);
-    checkReward(level);
-    saveDailyXP();
-    drawChart();
-    drawChart();
-    updateUI();
-}
-
-window.onload = function () {
-    drawChart();
-
-    updateUI();
-};
-const rewards = {
-    5: "🎬 Movie Time!",
-    10: "🛍️ Buy something small!",
-    15: "🍕 Cheat Meal!",
-    20: "🎉 Fun Day!"
-};
-
-function checkReward(level) {
-    if (rewards[level]) {
-        document.getElementById("rewardText").innerText = rewards[level];
-        document.getElementById("rewardPopup").style.display = "flex";
-    }
-}
-
-function closePopup() {
-    document.getElementById("rewardPopup").style.display = "none";
-}
-function setDate() {
-    let today = new Date();
-    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById("todayDate").innerText = today.toLocaleDateString("en-US", options);
-}
-
-setDate();
-
-document.querySelectorAll("input[type=checkbox]").forEach(box => {
-    box.addEventListener("change", function() {
-        if (this.checked) {
-            this.parentElement.style.background = "#16a34a";
-        }
-    });
-});
-let lastDate = localStorage.getItem("lastDate");
-let today = new Date().toDateString();
-
-if (lastDate !== today) {
-    localStorage.setItem("lastDate", today);
-    localStorage.removeItem("streaks"); // resets daily ticks visual
-}
-let history = JSON.parse(localStorage.getItem("history")) || [];
-
-function saveDailyXP() {
-    let today = new Date().toDateString();
-    let existing = history.find(item => item.date === today);
-
-    if (existing) {
-        existing.xp = xp;
-    } else {
-        history.push({ date: today, xp: xp });
-    }
-
-    localStorage.setItem("history", JSON.stringify(history));
-}
-function drawChart() {
-    let ctx = document.getElementById('progressChart').getContext('2d');
-
-    let labels = history.map(h => h.date.slice(0,10));
-    let data = history.map(h => h.xp);
-
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'XP Growth',
-                data: data,
-                tension: 0.3
-            }]
-        }
-    });
-}
 let xp = 0;
+
+// Load XP from storage when page opens
+window.onload = function () {
+  const savedXP = localStorage.getItem("xp");
+  if (savedXP) {
+    xp = parseInt(savedXP);
+    updateXP();
+  }
+};
+
+function updateXP() {
+  document.getElementById("xp").innerText = "XP: " + xp;
+  localStorage.setItem("xp", xp);
+}
 
 function addTask() {
   const input = document.getElementById("taskInput");
-  const taskText = input.value;
+  const taskText = input.value.trim();
 
   if (taskText === "") return;
 
   const taskDiv = document.createElement("div");
   taskDiv.className = "task";
-  taskDiv.innerHTML = `
-    <span>${taskText}</span>
-    <button onclick="completeTask(this)">✔</button>
-  `;
+
+  const span = document.createElement("span");
+  span.innerText = taskText;
+
+  const btn = document.createElement("button");
+  btn.innerText = "✔";
+  btn.onclick = function () {
+    taskDiv.remove();
+    xp += 10;
+    updateXP();
+  };
+
+  taskDiv.appendChild(span);
+  taskDiv.appendChild(btn);
 
   document.getElementById("taskList").appendChild(taskDiv);
   input.value = "";
 }
 
-function completeTask(btn) {
-  btn.parentElement.remove();
-  xp += 10;
-  document.getElementById("xp").innerText = "XP: " + xp;
-}
 
 
