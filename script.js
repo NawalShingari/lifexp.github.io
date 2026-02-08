@@ -55,4 +55,18 @@ function setDate() {
 
 setDate();
 
+document.querySelectorAll("input[type=checkbox]").forEach(box => {
+    box.addEventListener("change", function() {
+        if (this.checked) {
+            this.parentElement.style.background = "#16a34a";
+        }
+    });
+});
+let lastDate = localStorage.getItem("lastDate");
+let today = new Date().toDateString();
+
+if (lastDate !== today) {
+    localStorage.setItem("lastDate", today);
+    localStorage.removeItem("streaks"); // resets daily ticks visual
+}
 
