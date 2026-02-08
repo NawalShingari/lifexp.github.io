@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div id="xp">XP: 0</div>
+<div id="todayDate"></div>
 
 <header>
   <h1>🌌 Life OS Dashboard</h1>
@@ -27,7 +29,8 @@
 
   <div class="card">
     <h2>📖 Daily Journal</h2>
-    <textarea placeholder="How was your day..."></textarea>
+    <textarea id="journalInput" onkeyup="saveJournal()" placeholder="How was your day..."></textarea>
+
   </div>
 
   <div class="card">
