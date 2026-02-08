@@ -47,4 +47,12 @@ function checkReward(level) {
 function closePopup() {
     document.getElementById("rewardPopup").style.display = "none";
 }
+function setDate() {
+    let today = new Date();
+    let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById("todayDate").innerText = today.toLocaleDateString("en-US", options);
+}
+
+setDate();
+
 
