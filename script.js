@@ -105,9 +105,29 @@ function drawChart() {
         }
     });
 }
-drawChart();
-saveDailyXP();
-    drawChart();
+let xp = 0;
 
-    updateUI()
+function addTask() {
+  const input = document.getElementById("taskInput");
+  const taskText = input.value;
+
+  if (taskText === "") return;
+
+  const taskDiv = document.createElement("div");
+  taskDiv.className = "task";
+  taskDiv.innerHTML = `
+    <span>${taskText}</span>
+    <button onclick="completeTask(this)">✔</button>
+  `;
+
+  document.getElementById("taskList").appendChild(taskDiv);
+  input.value = "";
+}
+
+function completeTask(btn) {
+  btn.parentElement.remove();
+  xp += 10;
+  document.getElementById("xp").innerText = "XP: " + xp;
+}
+
 
