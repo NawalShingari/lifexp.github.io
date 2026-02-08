@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeXP</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <h1>🎮 LifeXP Dashboard</h1>
+
+    <div class="stats">
+        <h2>Level: <span id="level">0</span></h2>
+        <h2>Total XP: <span id="xp">0</span></h2>
+    </div>
+
+    <div class="tasks">
+        <h2>✅ Daily Tasks</h2>
+        <label><input type="checkbox" onclick="completeTask(20)"> Gym</label>
+        <label><input type="checkbox" onclick="completeTask(25)"> Study</label>
+        <label><input type="checkbox" onclick="completeTask(30)"> Coding</label>
+        <label><input type="checkbox" onclick="completeTask(15)"> No Junk Food</label>
+        <label><input type="checkbox" onclick="completeTask(10)"> Meditation</label>
+    </div>
+
+    <div class="journal">
+        <h2>📓 Daily Journal</h2>
+        <textarea id="journalText" placeholder="Write about your day..."></textarea>
+        <button onclick="saveJournal()">Save Journal</button>
+    </div>
+
+    <div class="gratitude">
+        <h2>🙏 Gratitude</h2>
+        <textarea id="gratitudeText" placeholder="3 things you're grateful for..."></textarea>
+        <button onclick="saveGratitude()">Save Gratitude</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
