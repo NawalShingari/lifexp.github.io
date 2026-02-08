@@ -11,47 +11,38 @@
 </head>
 <body>
 
-    <header>
+<header>
   <h1>🌌 Life OS Dashboard</h1>
   <p>Level Up Your Real Life</p>
 </header>
 
-<div class="card">
-  <h2>📅 Today's Tasks</h2>
-  <input type="text" id="taskInput" placeholder="Enter task...">
-  <button onclick="addTask()">Add Task</button>
-  <div id="taskList"></div>
-</div>
+<div class="container">
 
-<div class="card">
-  <h2>📖 Daily Journal</h2>
-  <textarea placeholder="How was your day..."></textarea>
-</div>
-
-<div class="card">
-  <h2>🙏 Gratitude</h2>
-  <input type="text" placeholder="Something you're grateful for...">
-</div>
-
-<div class="card">
-  <h2>🎮 XP Points</h2>
-  <p id="xp">XP: 0</p>
-</div>
-
-
-    <script src="script.js"></script>
-<div id="rewardPopup" class="popup">
-  <div class="popup-content">
-    <h2>🎉 Reward Unlocked!</h2>
-    <p id="rewardText"></p>
-    <button onclick="closePopup()">Nice 😎</button>
+  <div class="card">
+    <h2>📅 Today's Tasks</h2>
+    <input type="text" id="taskInput" placeholder="Enter task...">
+    <button onclick="addTask()">Add Task</button>
+    <div id="taskList"></div>
   </div>
-</div>
-<div class="card">
-  <h3>📈 Progress Graph</h3>
-  <canvas id="progressChart"></canvas>
+
+  <div class="card">
+    <h2>📖 Daily Journal</h2>
+    <textarea placeholder="How was your day..."></textarea>
+  </div>
+
+  <div class="card">
+    <h2>🙏 Gratitude</h2>
+    <input type="text" placeholder="Something you're grateful for...">
+  </div>
+
+  <div class="card">
+    <h2>🎮 XP Points</h2>
+    <p id="xp">XP: 0</p>
+  </div>
+
 </div>
 
-
+<script src="script.js"></script>
 </body>
+
 </html>
