@@ -11,49 +11,33 @@
 </head>
 <body>
 
-    <h1>🎮 LifeXP Dashboard</h1>
-    <div class="date-box">
-  <h2 id="todayDate"></h2>
+    <header>
+  <h1>🌌 Life OS Dashboard</h1>
+  <p>Level Up Your Real Life</p>
+</header>
+
+<div class="card">
+  <h2>📅 Today's Tasks</h2>
+  <input type="text" id="taskInput" placeholder="Enter task...">
+  <button onclick="addTask()">Add Task</button>
+  <div id="taskList"></div>
 </div>
 
-
-    <div class="stats">
-        <h2>Level: <span id="level">0</span></h2>
-        <h2>Total XP: <span id="xp">0</span></h2>
-    </div>
-    <div class="card">
-    <h3>Daily Tasks</h3>
-
-<label>
-  <input type="checkbox" onclick="completeTask('gym',20)">
-  Gym 🔥 Streak: <span id="gym-streak">0</span>
-</label><br>
-
-<label>
-  <input type="checkbox" onclick="completeTask('study',25)">
-  Study 🔥 Streak: <span id="study-streak">0</span>
-</label><br>
-
-<label>
-  <input type="checkbox" onclick="completeTask('coding',30)">
-  Coding 🔥 Streak: <span id="coding-streak">0</span>
-</label><br>
+<div class="card">
+  <h2>📖 Daily Journal</h2>
+  <textarea placeholder="How was your day..."></textarea>
 </div>
-    
-    <div class="card">
-    <div class="journal">
-        <h2>📓 Daily Journal</h2>
-        <textarea id="journalText" placeholder="Write about your day..."></textarea>
-        <button onclick="saveJournal()">Save Journal</button>
-    </div>
-        </div>
-    <div class="card">
-    <div class="gratitude">
-        <h2>🙏 Gratitude</h2>
-        <textarea id="gratitudeText" placeholder="3 things you're grateful for..."></textarea>
-        <button onclick="saveGratitude()">Save Gratitude</button>
-    </div>
-        </div>
+
+<div class="card">
+  <h2>🙏 Gratitude</h2>
+  <input type="text" placeholder="Something you're grateful for...">
+</div>
+
+<div class="card">
+  <h2>🎮 XP Points</h2>
+  <p id="xp">XP: 0</p>
+</div>
+
 
     <script src="script.js"></script>
 <div id="rewardPopup" class="popup">
