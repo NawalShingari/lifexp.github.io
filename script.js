@@ -28,4 +28,21 @@ function completeTask(task, points) {
 window.onload = function () {
     updateUI();
 };
+const rewards = {
+    5: "🎬 Movie Time!",
+    10: "🛍️ Buy something small!",
+    15: "🍕 Cheat Meal!",
+    20: "🎉 Fun Day!"
+};
+
+function checkReward(level) {
+    if (rewards[level]) {
+        document.getElementById("rewardText").innerText = rewards[level];
+        document.getElementById("rewardPopup").style.display = "flex";
+    }
+}
+
+function closePopup() {
+    document.getElementById("rewardPopup").style.display = "none";
+}
 
