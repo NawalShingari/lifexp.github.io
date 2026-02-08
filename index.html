@@ -18,7 +18,7 @@
         <h2>Level: <span id="level">0</span></h2>
         <h2>Total XP: <span id="xp">0</span></h2>
     </div>
-
+    <div class="card">
     <h3>Daily Tasks</h3>
 
 <label>
@@ -35,19 +35,22 @@
   <input type="checkbox" onclick="completeTask('coding',30)">
   Coding 🔥 Streak: <span id="coding-streak">0</span>
 </label><br>
-
-
+</div>
+    
+    <div class="card">
     <div class="journal">
         <h2>📓 Daily Journal</h2>
         <textarea id="journalText" placeholder="Write about your day..."></textarea>
         <button onclick="saveJournal()">Save Journal</button>
     </div>
-
+        </div>
+    <div class="card">
     <div class="gratitude">
         <h2>🙏 Gratitude</h2>
         <textarea id="gratitudeText" placeholder="3 things you're grateful for..."></textarea>
         <button onclick="saveGratitude()">Save Gratitude</button>
     </div>
+        </div>
 
     <script src="script.js"></script>
 <div id="rewardPopup" class="popup">
